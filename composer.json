@@ -1,0 +1,12 @@
+{
+    "name": "lupks/lupkoin",
+    "require": {
+        "php": "^7.3"
+    },
+    "authors": [
+        {
+            "name": "lupks",
+            "email": "jeffreylupker@gmail.com"
+        }
+    ]
+}
