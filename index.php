@@ -35,7 +35,7 @@ if (isset($_GET['logout'])) {
 <div class="w3-top">
     <div class="w3-bar w3-light-grey w3-card">
         <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right"
-           href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i
+           href="javascript:void(0)" onclick="dropdownClick()" title="Toggle Navigation Menu"><i
                     class="fa fa-bars"></i></a>
         <a class="w3-bar-item w3-button w3-opacity w3-padding-large">HOME</a>
         <a href="pages/send.php" class="w3-bar-item w3-button w3-padding-large w3-hide-small">SEND</a>
@@ -87,14 +87,14 @@ if (isset($_GET['logout'])) {
 </div>
 
 <script>
-    // function myFunction() {
-    //     var x = document.getElementById("navDemo");
-    //     if (x.className.indexOf("w3-show") == -1) {
-    //         x.className += " w3-show";
-    //     } else {
-    //         x.className = x.className.replace(" w3-show", "");
-    //     }
-    // }
+    function dropdownClick() {
+        var x = document.getElementById("navDemo");
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+        } else {
+            x.className = x.className.replace(" w3-show", "");
+        }
+    }
 
 
 </script>
