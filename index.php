@@ -37,7 +37,7 @@ if (isset($_GET['logout'])) {
         <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right"
            href="javascript:void(0)" onclick="dropdownClick()" title="Toggle Navigation Menu"><i
                     class="fa fa-bars"></i></a>
-        <a class="w3-bar-item w3-button w3-opacity w3-padding-large">HOME</a>
+        <a class="w3-bar-item w3-button w3-opacity w3-padding-large w3-hide-small">HOME</a>
         <a href="pages/send.php" class="w3-bar-item w3-button w3-padding-large w3-hide-small">SEND</a>
         <a href="pages/receive.php" class="w3-bar-item w3-button w3-padding-large w3-hide-small">RECEIVE</a>
 
@@ -50,9 +50,10 @@ if (isset($_GET['logout'])) {
 <!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
 <div id="navDemo" class="w3-bar-block w3-light-grey w3-hide w3-hide-large w3-hide-medium w3-top"
      style="margin-top:46px">
+    <a class="w3-bar-item w3-button w3-opacity w3-padding-large ">HOME</a>
     <a href="pages/send.php" class="w3-bar-item w3-button w3-padding-large" onclick="dropdownClick()">SEND</a>
     <a href="pages/receive.php" class="w3-bar-item w3-button w3-padding-large" onclick="dropdownClick()">RECEIVE</a>
-    <a class="w3-bar-item w3-button w3-padding-large w3-hide-small w3-center"
+    <a class="w3-bar-item w3-button w3-padding-large w3-center"
        onclick="document.getElementById('id01').style.display = 'block'"><b><?php echo $_SESSION['wallet_address'] ?></b></a>
 </div>
 
