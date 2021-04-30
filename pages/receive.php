@@ -39,7 +39,7 @@ if (isset($_GET['logout'])) {
         <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right"
            href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i
                     class="fa fa-bars"></i></a>
-        <a href="index.php" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+        <a href="../index.php" class="w3-bar-item w3-button w3-padding-large">HOME</a>
         <a href="send.php" class="w3-bar-item w3-button w3-padding-large w3-hide-small ">SEND</a>
         <a class="w3-bar-item w3-button w3-padding-large w3-hide-small w3-opacity">RECEIVE</a>
 
@@ -59,7 +59,7 @@ if (isset($_GET['logout'])) {
 <div class="w3-content" style="max-width:2000px;margin-top:64px">
     <div class="w3-row">
         <div class="w3-center">
-            <a href="index.php">
+            <a href="../index.php">
                 <img class="w3-center" src="../static/cropped_logo.png" alt="lk_logo" height="100" width="100"/>
             </a>
         </div>
@@ -115,7 +115,7 @@ if (isset($_GET['logout'])) {
             </div>
             <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
                 <a class="w3-button w3-block w3-section w3-padding" style="background-color: #4184f4;
-    color: #ffffff" href="index.php?logout='1'">Logout</a>
+    color: #ffffff" href="../index.php?logout='1'">Logout</a>
             </div>
         </div>
     </div>

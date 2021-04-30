@@ -87,7 +87,7 @@ if (isset($_POST['reg_user'])) {
         $_SESSION['username'] = $username;
         $_SESSION['wallet_address'] = $wallet_address;
         $_SESSION['success'] = "You are now logged in";
-        header('location: index.php');
+        header('location: ../index.php');
     }
 }
 
@@ -118,7 +118,7 @@ if (isset($_POST['login_user'])) {
             $wallet_address = mysqli_fetch_row($wallet_addr_q);
             $_SESSION['wallet_address'] = $wallet_address[0];
             $_SESSION['success'] = "You are now logged in";
-            header('location: index.php');
+            header('location: ../index.php');
         } else {
             array_push($errors, "Wrong username/password combination");
         }

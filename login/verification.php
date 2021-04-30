@@ -1,4 +1,4 @@
-<?php include('server.php') ?>
+<?php include('../server.php') ?>
 
 <?php
 
@@ -37,7 +37,7 @@
 <div class="w3-content" style="max-width:2000px;margin-top:46px">
     <br>
     <div class="w3-center">
-        <a href="index.php">
+        <a href="../index.php">
             <img class="w3-center" src="../static/cropped_logo.png" alt="lk_logo" height="100" width="100"/>
         </a></div>
     <h1 class="w3-wide w3-center">VERIFY</h1>

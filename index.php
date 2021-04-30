@@ -5,12 +5,12 @@ session_start();
 
 if (!isset($_SESSION['username'])) {
     $_SESSION['msg'] = "You must log in first";
-    header('location: login.php');
+    header('location: login/login.php');
 }
 if (isset($_GET['logout'])) {
     session_destroy();
     unset($_SESSION['username']);
-    header("location: login.php");
+    header("location: login/login.php");
 }
 ?>
 
@@ -18,7 +18,7 @@ if (isset($_GET['logout'])) {
 <html>
 <head>
     <title>LUPKOIN</title>
-    <link rel="shortcut icon" type="image/jpg" href="../static/cropped_logo.png"/>
+    <link rel="shortcut icon" type="image/jpg" href="static/cropped_logo.png"/>
 </head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -38,8 +38,8 @@ if (isset($_GET['logout'])) {
            href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i
                     class="fa fa-bars"></i></a>
         <a class="w3-bar-item w3-button w3-opacity w3-padding-large">HOME</a>
-        <a href="send.php" class="w3-bar-item w3-button w3-padding-large w3-hide-small">SEND</a>
-        <a href="receive.php" class="w3-bar-item w3-button w3-padding-large w3-hide-small">RECEIVE</a>
+        <a href="pages/send.php" class="w3-bar-item w3-button w3-padding-large w3-hide-small">SEND</a>
+        <a href="pages/receive.php" class="w3-bar-item w3-button w3-padding-large w3-hide-small">RECEIVE</a>
 
         <!-- logged in user information -->
         <a class="w3-bar-item w3-button w3-padding-large w3-hide-small w3-right"
@@ -50,8 +50,8 @@ if (isset($_GET['logout'])) {
 <!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
 <div id="navDemo" class="w3-bar-block w3-light-grey w3-hide w3-hide-large w3-hide-medium w3-top"
      style="margin-top:46px">
-    <a href="send.php" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">SEND</a>
-    <a href="receive.php" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">RECEIVE</a>
+    <a href="pages/send.php" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">SEND</a>
+    <a href="pages/receive.php" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">RECEIVE</a>
 </div>
 
 <!-- Page content -->
@@ -59,7 +59,7 @@ if (isset($_GET['logout'])) {
     <br>
     <div class="w3-center">
         <a href="index.php">
-            <img class="w3-center" src="../static/cropped_logo.png" alt="lk_logo" height="100" width="100"/>
+            <img class="w3-center" src="static/cropped_logo.png" alt="lk_logo" height="100" width="100"/>
         </a></div>
     <h1 class="w3-wide w3-center">LUPKOIN</h1>
     <h4 class="w3-wide w3-opacity w3-center">A Safe & Secure P2P Coin</h4>

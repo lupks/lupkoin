@@ -1,4 +1,4 @@
-<?php include('server.php') ?>
+<?php include('../server.php') ?>
 
 <!doctype html>
 <html>
@@ -22,9 +22,7 @@
 <div class="w3-content" style="max-width:2000px;margin-top:64px">
     <div class="w3-row">
         <div class="w3-center">
-            <a href="index.php">
-                <img class="w3-center" src="../static/cropped_logo.png" alt="lk_logo" height="100" width="100"/>
-            </a>
+            <img class="w3-center" src="../static/cropped_logo.png" alt="lk_logo" height="100" width="100"/>
         </div>
         <h1 class="w3-wide w3-center">LUPKOIN</h1>
         <h4 class="w3-wide w3-opacity w3-center">A Safe & Secure P2P Coin</h4>
