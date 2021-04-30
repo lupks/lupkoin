@@ -52,6 +52,8 @@ if (isset($_GET['logout'])) {
      style="margin-top:46px">
     <a href="pages/send.php" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">SEND</a>
     <a href="pages/receive.php" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">RECEIVE</a>
+    <a class="w3-bar-item w3-button w3-padding-large w3-hide-small w3-center"
+       onclick="document.getElementById('id01').style.display = 'block'"><b><?php echo $_SESSION['wallet_address'] ?></b></a>
 </div>
 
 <!-- Page content -->

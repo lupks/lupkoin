@@ -48,6 +48,8 @@ if (isset($_GET['logout'])) {
      style="margin-top:46px">
     <a href="../index.php" class="w3-bar-item w3-button w3-padding-large" onclick="dropdownClick()">SEND</a>
     <a href="receive.php" class="w3-bar-item w3-button w3-padding-large" onclick="dropdownClick()">RECEIVE</a>
+    <a class="w3-bar-item w3-button w3-padding-large w3-hide-small w3-center"
+       onclick="document.getElementById('id02').style.display = 'block'"><b><?php echo $_SESSION['wallet_address']; ?></b></a>
 </div>
 
 <!-- Page content -->
@@ -150,7 +152,7 @@ if (isset($_GET['logout'])) {
     <script>
         // dropdown menu
         function dropdownClick() {
-            var x = document.getElementById("dropdown");
+            var x = document.getElementById("navDemo");
             if (x.className.indexOf("w3-show") == -1) {
                 x.className += " w3-show";
             } else {
