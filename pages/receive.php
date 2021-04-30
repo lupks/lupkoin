@@ -51,8 +51,8 @@ if (isset($_GET['logout'])) {
 <!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
 <div id="navDemo" class="w3-bar-block w3-light-grey w3-hide w3-hide-large w3-hide-medium w3-top"
      style="margin-top:46px">
-    <a href="send.php" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">SEND</a>
-    <a href="receive.php" class="w3-bar-item w3-button w3-padding-large" onclick="myFunction()">RECEIVE</a>
+    <a href="send.php" class="w3-bar-item w3-button w3-padding-large" onclick="dropdownClick()">SEND</a>
+    <a href="receive.php" class="w3-bar-item w3-button w3-padding-large" onclick="dropdownClick()">RECEIVE</a>
 </div>
 
 <!-- Page content -->
@@ -123,7 +123,7 @@ if (isset($_GET['logout'])) {
 
 <script>
     // dropdown menu
-    function myFunction() {
+    function dropdownClick() {
         var x = document.getElementById("Demo");
         if (x.className.indexOf("w3-show") == -1) {
             x.className += " w3-show";

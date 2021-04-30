@@ -19,11 +19,6 @@ $query_builder = TRUE;
 $db = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
 
 
-// connect to the database
-//$db = mysqli_connect('us-cdbr-east-03.cleardb.com', 'b405c055b28ce1', '71a842df', 'registration');
-
-//$db = mysqli_connect('localhost:3306', 'root', 'connect', 'registration');
-//mysql://b405c055b28ce1:71a842df@us-cdbr-east-03.cleardb.com/heroku_7d197f166fc40f6?reconnect=true
 // REGISTER USER
 if (isset($_POST['reg_user'])) {
     // receive all input values from the form
