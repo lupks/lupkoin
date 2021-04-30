@@ -35,6 +35,9 @@ if (isset($_GET['logout'])) {
 <!-- Navbar -->
 <div class="w3-top">
     <div class="w3-bar w3-light-grey w3-card">
+        <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right"
+           href="javascript:void(0)" onclick="dropdownClick()" title="Toggle Navigation Menu"><i
+                    class="fa fa-bars"></i></a>
         <a href="../index.php" class="w3-bar-item w3-button w3-padding-large">HOME</a>
         <a class="w3-bar-item w3-button w3-padding-large w3-hide-small w3-opacity">SEND</a>
         <a href="receive.php" class="w3-bar-item w3-button w3-padding-large w3-hide-small">RECEIVE</a>
