@@ -34,7 +34,7 @@ if (isset($_GET['logout'])) {
 <!-- Navbar -->
 <div class="w3-top">
     <div class="w3-bar w3-light-grey w3-card">
-        <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right"
+        <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-left"
            href="javascript:void(0)" onclick="dropdownClick()" title="Toggle Navigation Menu"><i
                     class="fa fa-bars"></i></a>
         <a class="w3-bar-item w3-button w3-opacity w3-padding-large w3-hide-small">HOME</a>
@@ -42,7 +42,7 @@ if (isset($_GET['logout'])) {
         <a href="pages/receive.php" class="w3-bar-item w3-button w3-padding-large w3-hide-small">RECEIVE</a>
 
         <!-- logged in user information -->
-        <a class="w3-bar-item w3-button w3-padding-large w3-hide-small w3-right"
+        <a class="w3-bar-item w3-button w3-padding-large w3-right"
            onclick="document.getElementById('id01').style.display = 'block'"><b><?php echo $_SESSION['wallet_address'] ?></b></a>
     </div>
 </div>
@@ -53,8 +53,7 @@ if (isset($_GET['logout'])) {
     <a class="w3-bar-item w3-button w3-opacity w3-padding-large ">HOME</a>
     <a href="pages/send.php" class="w3-bar-item w3-button w3-padding-large" onclick="dropdownClick()">SEND</a>
     <a href="pages/receive.php" class="w3-bar-item w3-button w3-padding-large" onclick="dropdownClick()">RECEIVE</a>
-    <a class="w3-bar-item w3-button w3-padding-large w3-center"
-       onclick="document.getElementById('id01').style.display = 'block'"><b><?php echo $_SESSION['wallet_address'] ?></b></a>
+
 </div>
 
 <!-- Page content -->
