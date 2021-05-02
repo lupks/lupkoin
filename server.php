@@ -28,21 +28,6 @@ if (isset($_POST['reg_user'])) {
     $password_1 = mysqli_real_escape_string($db, $_POST['password_1']);
     $password_2 = mysqli_real_escape_string($db, $_POST['password_2']);
 
-    // form validation: ensure that the form is correctly filled ...
-    // by adding (array_push()) corresponding error unto $errors array
-    if (empty($username)) {
-        array_push($errors, "Username is required");
-    }
-    if (empty($email)) {
-        array_push($errors, "Email is required");
-    }
-    if (empty($password_1)) {
-        array_push($errors, "Password is required");
-    }
-    if ($password_1 != $password_2) {
-        array_push($errors, "The two passwords do not match");
-    }
-
     // first check the database to make sure
     // a user does not already exist with the same username and/or email
     $user_check_query = "SELECT * FROM users WHERE username='$username' OR email='$email' LIMIT 1";
@@ -51,11 +36,11 @@ if (isset($_POST['reg_user'])) {
 
     if ($user) { // if user exists
         if ($user['username'] === $username) {
-            array_push($errors, "Username already exists");
+            array_push($errors, "Username already exists! Please try again.");
         }
 
         if ($user['email'] === $email) {
-            array_push($errors, "Email address already exists");
+            array_push($errors, "Email address already exists! Please try again.");
         }
     }
 //    If no errors - send to verify table first
@@ -115,14 +100,6 @@ if (isset($_POST['login_user'])) {
     $username = mysqli_real_escape_string($db, $_POST['username']);
     $password = mysqli_real_escape_string($db, $_POST['password']);
 
-    if (empty($username)) {
-        array_push($errors, "Username is required");
-    }
-    if (empty($password)) {
-        array_push($errors, "Password is required");
-    }
-
-
 //    if successful now look at mysql table
     if (count($errors) == 0) {
         $password = md5($password);
@@ -145,7 +122,7 @@ if (isset($_POST['login_user'])) {
 
             header('location: ../index.php');
         } else {
-            array_push($errors, "Wrong username/password combination");
+            array_push($errors, "Wrong username/password combination!");
         }
     }
 }
