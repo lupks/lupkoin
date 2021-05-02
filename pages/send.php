@@ -29,6 +29,15 @@ if (isset($_GET['logout'])) {
     body {
         font-family: "Lato", sans-serif
     }
+
+    input:hover {
+        background-color: rgb(65, 132, 244, 0.2);
+    }
+
+    input:focus::placeholder {
+        color: black;
+    }
+
 </style>
 
 <body>
@@ -59,54 +68,53 @@ if (isset($_GET['logout'])) {
 <div class="w3-content" style="max-width:2000px;margin-top:64px">
     <div class="w3-row">
         <div class="w3-center">
-            <a href="/">
+            <a href="../index.php">
                 <img class="w3-center" src="../static/cropped_logo.png" alt="lk_logo" height="100" width="100"/>
             </a></div>
         <h4 class="w3-wide w3-center">SEND</h4>
     </div>
     <hr>
-
     <!-- The Contact Section -->
-    <div class="w3-container w3-content w3-padding-32" style="max-width:400px" id="send_coin">
-        <div class="w3-card-4 w3-light-grey">
-            <div class="w3-container w3-center w3-hover-shadow">
+    <div class="w3-container w3-content w3-padding-16" style="max-width:400px" id="send_coin">
+        <div class="w3-card-4 w3-round-xlarge">
+            <div class="w3-container w3-center w3-round-xlarge w3-hover-shadow">
                 <form id="form-transaction" method="post">
-                    <div class="w3-row">
-                        <p class="w3-left">Address</p>
-                        <input class="w3-input w3-middle" id="user-input" type="text" placeholder="Tap to paste"
+                    <div class="w3-row w3-padding">
+                        <label class="w3-left w3-padding">Address</label>
+                        <input class="w3-input w3-middle w3-round-xlarge w3-border w3-text-black"
+                               id="user-input" type="text" placeholder="Tap to paste"
                                required name="Message">
                     </div>
-                    <div class="w3-row">
-                        <p class="w3-left">Network</p>
-                        <div class="w3-row">
-                            <select style="padding: 8px 4px" class="w3-white w3-block w3-left-align w3-text-grey" id="network" name="network">
-                                <option value="LK Network">LK Network</option>
-                                <option value="ERC20">ERC20</option>
-                                <option value="BEP20">BEP20 (BSC)</option>
-                            </select>
-                        </div>
+                    <div class="w3-row w3-padding">
+                        <label class="w3-left w3-padding">Network</label>
+                        <input class="w3-input w3-middle w3-round-xlarge w3-border w3-text-black"
+                               type="text" placeholder="LK Network"
+                               required name="Message">
                     </div>
-                    <div class="w3-row">
-                        <p class="w3-left">Amount</p>
-                        <input id=send-amt class="w3-input w3-middle" type="text" placeholder="0" required
+                    <div class="w3-row w3-padding">
+                        <label class="w3-left w3-padding">Amount</label>
+                        <input id=send-amt class="w3-input w3-middle w3-round-xlarge w3-border w3-text-black"
+                               type="number" placeholder="0"
+                               required
                                name="amount">
                     </div>
                 </form>
 
-                <div class="w3-row">
+                <div id="card-bottom" class="w3-center w3-panel w3-round-xlarge">
                     <p class="w3-left"></p>
                     <div class="w3-col s6">
-                        <p class="w3-left w3-small w3-text-grey">You are sending: </p>
+                        <p class="w3-left w3-small w3-text-grey">Sending to: <div id="send-to"></div></p>
                         <div class="w3-row">
                             <div class="w3-left" id="displayText">0ĸ</div>
                         </div>
                         <div class="w3-row">
-                            <p class="w3-left w3-tiny w3-text-grey">Transaction fee: 0.01ĸ</p>
+                            <p class="w3-left w3-tiny w3-text-grey">Your
+                                balance: <?php echo $_SESSION['total_balance']; ?>ĸ</p>
                         </div>
                     </div>
                     <div class="w3-col s6">
                         <br>
-                        <button class="w3-button w3-section w3-right w3-round" style="background-color: #4184f4;
+                        <button class="w3-button w3-section w3-right w3-round-xlarge" style="background-color: #4184f4;
     color: #ffffff" id="send-form" type="submit"
                                 onclick="send_amt()">
                             SEND
@@ -118,12 +126,11 @@ if (isset($_GET['logout'])) {
     </div>
 
     <!-- The Modal -->
-    <div id="id01" class="w3-modal w3-animate-opacity" style="background-color: rgba(0, 0, 0, 0.4)">
-        <div class="w3-modal-content" style="max-width:500px">
-            <div class="w3-container">
-                <h3 class="w3-center w3-block w3-padding-16 w3-text-white" style="background-color: #4184f4;
-    color: #ffffff">Verify Transaction</h3>
-                <hr>
+    <div id="id01" class="w3-modal w3-animate-opacity " style="background-color: rgba(0, 0, 0, 0.4)">
+        <div class="w3-modal-content w3-round-xlarge" style="max-width:500px">
+            <div class="w3-container ">
+                <h3 class="w3-center w3-panel w3-card-4 w3-round-xlarge w3-text-white w3-padding-16"
+                    style="background-color: #4184f4;">Verify Transaction</h3>
                 <br>
                 <p class="w3-center w3-text-black" id="user-send">Send the following amount to: </p>
                 <div class="w3 row">
@@ -152,6 +159,29 @@ if (isset($_GET['logout'])) {
         </div>
     </div>
 
+    <!--logout modal-->
+    <div class="w3-container w3-round-xlarge">
+        <div id="id02" class="w3-modal w3-hover-shadow">
+            <div class="w3-modal-content w3-card-4 w3-animate-zoom w3-round-xlarge" style="max-width:400px">
+                <div class="w3-center"><br>
+                    <span onclick="document.getElementById('id02').style.display='none'"
+                          class="w3-button w3-xlarge w3-round-xlarge w3-display-topright"
+                          title="Close Modal">&times;</span>
+                </div>
+                <h5 class="w3-section w3-padding w3-center w3-opacity">
+                    Total Balance
+                </h5>
+                <div class="w3-row w3-center" style="color: #4184f4">
+                    <?php echo $_SESSION['total_balance']; ?>ĸ
+                </div>
+                <div class="w3-center w3-padding-large">
+                    <a class="w3-button w3-section w3-padding w3-round-xlarge" style="background-color: #4184f4;
+    color: #ffffff" href="index.php?logout='1'">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
         // dropdown menu
         function dropdownClick() {
@@ -167,11 +197,19 @@ if (isset($_GET['logout'])) {
         const input = document.getElementById('send-amt');
         const textElement = document.getElementById('displayText');
 
+        const send = document.getElementById('user-input');
+        const sendElement = document.getElementById('send-to');
+
         function updateValue(e) {
             textElement.textContent = e.target.value + "ĸ";
         }
+        function updateUser(e) {
+            sendElement.textContent = e.target.value;
+        }
 
         input.addEventListener('input', updateValue);
+        input.addEventListener('send', updateUser);
+
 
         //Update verification amount
         function send_amt() {
@@ -213,10 +251,14 @@ if (isset($_GET['logout'])) {
         }
 
         // {#click outside of modal to close#}
-        var modal = document.getElementById('id01');
+        var modal_transaction = document.getElementById('id01');
+        var modal_logout = document.getElementById('id02');
         window.onclick = function (event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
+            if (event.target == modal_transaction) {
+                modal_transaction.style.display = "none";
+            }
+            if (event.target == modal_logout) {
+                modal_logout.style.display = "none";
             }
         }
 

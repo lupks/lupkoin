@@ -15,9 +15,10 @@ $cleardb_password = $cleardb_url["pass"];
 $cleardb_db = substr($cleardb_url["path"],1);
 $active_group = 'default';
 $query_builder = TRUE;
-// Connect to DB
+
 $db = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
 
+//$db = mysqli_connect("127.0.0.1:3306", "root", "connect", "registration");
 
 // REGISTER USER
 if (isset($_POST['reg_user'])) {
@@ -90,12 +91,21 @@ if (isset($_POST['reg_user'])) {
         $password = md5($password_1);//encrypt the password before saving in the database
         $wallet_address = "LK-" . bin2hex(openssl_random_pseudo_bytes(8));
 
+//        and user account to sql
         $query = "INSERT INTO users (wallet_address, username, email, password)
   			  VALUES('$wallet_address', '$username', '$email', '$password')";
         mysqli_query($db, $query);
         $_SESSION['username'] = $username;
         $_SESSION['wallet_address'] = $wallet_address;
         $_SESSION['success'] = "You are now logged in";
+
+//        add wallet and balance to account
+        $starting_balance = 1000.00;
+        $query = "INSERT INTO total_balance (wallet_address, balance)
+  			  VALUES('$wallet_address', '$starting_balance')";
+        mysqli_query($db, $query);
+        $_SESSION['total_balance'] = $starting_balance;
+
         header('location: ../index.php');
     }
 }
@@ -127,6 +137,12 @@ if (isset($_POST['login_user'])) {
             $wallet_address = mysqli_fetch_row($wallet_addr_q);
             $_SESSION['wallet_address'] = $wallet_address[0];
             $_SESSION['success'] = "You are now logged in";
+
+//            get balance from other sql
+            $total_balance = mysqli_query($db, "SELECT balance FROM total_balance WHERE wallet_address='$wallet_address[0]'");
+            $total_balance = mysqli_fetch_row($total_balance);
+            $_SESSION['total_balance'] = $total_balance[0];
+
             header('location: ../index.php');
         } else {
             array_push($errors, "Wrong username/password combination");

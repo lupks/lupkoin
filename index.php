@@ -68,20 +68,36 @@ if (isset($_GET['logout'])) {
     <hr>
 </div>
 
+<!-- The Contact Section -->
+<div class="w3-container w3-content w3-padding-32" style="max-width:300px" id="send_coin">
+    <div class="w3-card-4 w3-round-xlarge">
+        <div class="w3-container w3-center w3-hover-shadow">
+            <div class="w3-row w3-padding">
+                <h5 class="w3-center">Total Balance</h5>
+                <h5 class="w3-center w3-text-grey"
+                   id="wallet-address"><?php echo $_SESSION['total_balance']; ?>ĸ</h5>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!--logout modal-->
-<div class="w3-container">
-    <div id="id01" class="w3-modal">
-        <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+<div class="w3-container w3-round-xlarge">
+    <div id="id01" class="w3-modal w3-hover-shadow">
+        <div class="w3-modal-content w3-card-4 w3-animate-zoom w3-round-xlarge" style="max-width:400px">
             <div class="w3-center"><br>
                 <span onclick="document.getElementById('id01').style.display='none'"
-                      class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
-                <label><b>Logout</b></label>
+                      class="w3-button w3-round-xlarge  w3-xlarge w3-display-topright"
+                      title="Close Modal">&times;</span>
             </div>
-            <div class="w3-section">
-                <label><b>Total Amount:</b></label>
+            <div class="w3-section w3-padding w3-center w3-opacity">
+                <label><b>Total Balance</b></label>
             </div>
-            <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
-                <a class="w3-button w3-block w3-section w3-padding" style="background-color: #4184f4;
+            <div class="w3-row w3-center" style="color: #4184f4">
+                <?php echo $_SESSION['total_balance']; ?>ĸ
+            </div>
+            <div class="w3-center w3-padding-large">
+                <a class="w3-button w3-section w3-padding w3-round-xlarge" style="background-color: #4184f4;
     color: #ffffff" href="index.php?logout='1'">Logout</a>
             </div>
         </div>
@@ -95,6 +111,13 @@ if (isset($_GET['logout'])) {
             x.className += " w3-show";
         } else {
             x.className = x.className.replace(" w3-show", "");
+        }
+    }
+
+    var modal_logout = document.getElementById('id01');
+    window.onclick = function (event) {
+        if (event.target == modal_logout) {
+            modal_logout.style.display = "none";
         }
     }
 
