@@ -8,17 +8,17 @@ $email = "";
 $errors = array();
 
 //Get Heroku ClearDB connection information
-$cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
-$cleardb_server = $cleardb_url["host"];
-$cleardb_username = $cleardb_url["user"];
-$cleardb_password = $cleardb_url["pass"];
-$cleardb_db = substr($cleardb_url["path"],1);
-$active_group = 'default';
-$query_builder = TRUE;
+//$cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+//$cleardb_server = $cleardb_url["host"];
+//$cleardb_username = $cleardb_url["user"];
+//$cleardb_password = $cleardb_url["pass"];
+//$cleardb_db = substr($cleardb_url["path"],1);
+//$active_group = 'default';
+//$query_builder = TRUE;
+//
+//$db = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
 
-$db = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
-
-//$db = mysqli_connect("127.0.0.1:3306", "root", "connect", "registration");
+$db = mysqli_connect("127.0.0.1:3306", "root", "connect", "registration");
 
 // REGISTER USER
 if (isset($_POST['reg_user'])) {
@@ -126,4 +126,24 @@ if (isset($_POST['login_user'])) {
         }
     }
 }
+
+if (isset($_POST['form-transaction'])) {
+    $send_address = mysqli_real_escape_string($db, $_POST['user-input']);
+    $from_address = $_SESSION['wallet_address'];
+    $send_amount = mysqli_real_escape_string($db, $_POST['send-amt']);
+
+//    if successful now look at mysql table
+    if (count($errors) == 0) {
+        $total_balance = mysqli_query($db, "SELECT balance FROM total_balance WHERE wallet_address='$from_address'");
+        $total_balance = mysqli_fetch_row($total_balance)[0];
+
+//        verify not sending more than user has
+        if ($total_balance >= $send_amount) {
+//            figure out how to make transactions
+
+        }
+    }
+}
+
 ?>
+
