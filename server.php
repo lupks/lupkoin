@@ -7,18 +7,7 @@ $username = "";
 $email = "";
 $errors = array();
 
-//Get Heroku ClearDB connection information
-//$cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
-//$cleardb_server = $cleardb_url["host"];
-//$cleardb_username = $cleardb_url["user"];
-//$cleardb_password = $cleardb_url["pass"];
-//$cleardb_db = substr($cleardb_url["path"],1);
-//$active_group = 'default';
-//$query_builder = TRUE;
-//
-//$db = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
-
-$db = mysqli_connect("127.0.0.1:3306", "root", "connect", "registration");
+//enter mysql connection here
 
 // REGISTER USER
 if (isset($_POST['reg_user'])) {
