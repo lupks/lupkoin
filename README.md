@@ -2,7 +2,7 @@
 
 # Lupkoin | A Safe & Secure P2P Cryptocurrency
 
-## [www.lupkoin.com](https://lupkoin.herokuapp.com)
+## [Lupkoin.com](https://lupkoin.herokuapp.com)
 
 <br>
 
@@ -12,9 +12,9 @@ Feel free to [create a new wallet](https://lupkoin.herokuapp.com) on lupkoin and
 
 
 ## Contact Info
-For help or issues involving Score_Transformer, please submit a GitHub issue.
+For help or issues involving Lupkoin, please submit a GitHub issue.
 
-For any personal communication related to Score_Transformer, please contact one of the contributors:
+For any personal communication related to Lupkoin or Lupskan, please contact one of the contributors:
 
 **Jeff Lupker**  
 jlupker@uwo.ca
